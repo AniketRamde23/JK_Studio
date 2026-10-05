@@ -4,31 +4,19 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Film,
   Download,
-  Calendar,
   Send,
   CheckCircle,
-  Play,
   X,
-  ExternalLink,
-  Shield,
-  Layers,
-  MapPin,
-  Languages
 } from 'lucide-react';
 import { ActingProfile, ActingProject } from '@/lib/db/types';
 
 interface Props {
   profile: ActingProfile;
-  projects: ActingProject[];
+  projects?: ActingProject[];
 }
 
-const CATEGORIES = ['All', 'Movie', 'Web Series', 'Ad / TVC', 'Theatre'] as const;
-
-export function ActingView({ profile, projects }: Props) {
-  const [activeCategory, setActiveCategory] = useState<string>('All');
-  const [selectedProject, setSelectedProject] = useState<ActingProject | null>(null);
+export function ActingView({ profile }: Props) {
   const [playingReel, setPlayingReel] = useState(false);
 
   // Casting Form State
@@ -44,10 +32,6 @@ export function ActingView({ profile, projects }: Props) {
   const [submitting, setSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-
-  const filteredProjects = activeCategory === 'All'
-    ? projects
-    : projects.filter(p => p.type === activeCategory);
 
   const handleSubmitEnquiry = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -192,76 +176,6 @@ export function ActingView({ profile, projects }: Props) {
         </div>
       </section>
 
-      {/* 3. Credits Grid (PRD Sec 7.3: Movies, Short Films, Web Series, Ads, Theatre) */}
-      <section className="space-y-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-gold block mb-1">
-              Filmography & Stage
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-text font-normal">
-              Acting Credits
-            </h2>
-          </div>
-
-          {/* Filter Chips (Design Spec 7.13: sliding pill) */}
-          <div className="flex flex-wrap gap-2">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all ${
-                  activeCategory === cat
-                    ? 'bg-gold text-ink font-semibold shadow-md'
-                    : 'bg-ink-curtain border border-ink-line text-text-muted hover:text-text'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* 2:3 Poster Grid (Design Spec 3.3) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              onClick={() => setSelectedProject(project)}
-              whileHover={{ y: -4 }}
-              className="group rounded-xl border border-ink-line bg-ink-stage overflow-hidden cursor-pointer hover:border-gold/50 transition-all shadow-xl"
-              data-cursor="photo"
-            >
-              <div className="relative aspect-[2/3] w-full overflow-hidden bg-ink-curtain">
-                <Image
-                  src={project.posterUrl}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-ink/80 backdrop-blur-sm border border-ink-line text-[11px] font-mono text-gold-hi uppercase">
-                  {project.type} · {project.year}
-                </div>
-              </div>
-
-              <div className="p-5 space-y-2">
-                <h3 className="font-serif text-2xl text-text font-medium group-hover:text-gold transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-xs font-mono text-gold-hi">
-                  {project.role}
-                </p>
-                <p className="text-xs text-text-muted">
-                  Dir: {project.director} · {project.production}
-                </p>
-                <p className="text-xs text-text/80 line-clamp-2 pt-1">
-                  {project.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* 4. Casting Enquiry Form (PRD Sec 7.9) */}
       <section id="casting-enquiry" className="rounded-2xl border border-ink-line bg-ink-stage p-6 sm:p-12 max-w-4xl mx-auto shadow-2xl">
@@ -445,61 +359,6 @@ export function ActingView({ profile, projects }: Props) {
         )}
       </AnimatePresence>
 
-      {/* Project Detail Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-ink/95 backdrop-blur-2xl flex items-center justify-center p-4"
-            onClick={() => setSelectedProject(null)}
-          >
-            <div
-              className="relative w-full max-w-2xl bg-ink-stage border border-ink-line rounded-2xl p-6 sm:p-8 space-y-4 shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-ink-curtain border border-ink-line text-text-muted hover:text-text flex items-center justify-center transition-colors"
-                aria-label="Close project details"
-              >
-                <X size={18} />
-              </button>
-
-              <span className="text-xs font-mono text-gold uppercase tracking-wider block">
-                {selectedProject.type} · {selectedProject.year}
-              </span>
-
-              <h3 className="font-serif text-3xl text-text font-normal">
-                {selectedProject.title}
-              </h3>
-
-              <div className="font-mono text-xs text-gold-hi">
-                Character: {selectedProject.role}
-              </div>
-
-              <div className="text-xs text-text-muted">
-                Director: {selectedProject.director} | Production: {selectedProject.production}
-              </div>
-
-              <p className="text-sm text-text/80 leading-relaxed pt-2">
-                {selectedProject.description}
-              </p>
-
-              <div className="pt-4 border-t border-ink-line flex justify-end">
-                <a
-                  href="#casting-enquiry"
-                  onClick={() => setSelectedProject(null)}
-                  className="px-5 py-2.5 rounded-full bg-gold text-ink text-xs font-semibold uppercase tracking-wider hover:bg-gold-hi transition-colors"
-                >
-                  Inquire for Similar Role
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
