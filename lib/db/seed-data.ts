@@ -11,7 +11,8 @@ import {
   ActingEnquiry,
   Testimonial,
   SiteSettings,
-  ContactMessage
+  ContactMessage,
+  SlotRequest
 } from './types';
 import realGalleryData from './real-gallery-data.json';
 
@@ -590,5 +591,44 @@ export const initialContactMessages: ContactMessage[] = [
     message: "Hi JK, we are planning a visual piece on 'Cinematic Dual Identities' for an upcoming digital issue and would love to feature you and your photo series.",
     status: "NEW",
     createdAt: "2026-10-01T07:10:00Z"
+  }
+];
+
+export const initialSlotRequests: SlotRequest[] = [
+  {
+    id: "slot_1",
+    publicId: "SLOT-2026-0001",
+    eventName: "Birthday Function",
+    date: "2026-10-25",
+    time: "06:00 PM",
+    customerName: "Rahul Sharma",
+    phone: "+91 98765 43210",
+    notes: "Evening celebration with family and friends at Jubilee Hills.",
+    status: "NEW",
+    createdAt: "2026-10-05T09:30:00Z"
+  },
+  {
+    id: "slot_2",
+    publicId: "SLOT-2026-0002",
+    eventName: "Wedding",
+    date: "2026-10-28",
+    time: "10:00 AM",
+    customerName: "Priya Patel",
+    phone: "+91 97654 32109",
+    notes: "Traditional morning ceremony.",
+    status: "CONTACTED",
+    createdAt: "2026-10-04T14:15:00Z"
+  },
+  {
+    id: "slot_3",
+    publicId: "SLOT-2026-0003",
+    eventName: "Engagement",
+    date: "2026-11-02",
+    time: "07:00 PM",
+    customerName: "Arjun Verma",
+    phone: "+91 99887 66554",
+    notes: "Ring ceremony evening reception.",
+    status: "CONFIRMED",
+    createdAt: "2026-10-03T11:00:00Z"
   }
 ];

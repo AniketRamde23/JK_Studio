@@ -118,7 +118,7 @@ export function Navbar() {
               href="/book"
               className="relative inline-flex items-center justify-center px-5 py-2 text-xs font-medium tracking-wider uppercase text-ink bg-gold hover:bg-gold-hi rounded-full transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-gold/20 hover:shadow-lg"
             >
-              Book a shoot
+              Book a Slot
             </Link>
           </div>
 
@@ -175,7 +175,7 @@ export function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full inline-flex items-center justify-center gap-2 py-3 bg-gold text-ink rounded-full text-sm font-semibold tracking-wider uppercase"
                 >
-                  <Calendar size={16} /> Book a shoot
+                  <Calendar size={16} /> Book a Slot
                 </Link>
                 <Link
                   href="/admin"
@@ -196,7 +196,7 @@ export function Navbar() {
           href="/book"
           className="flex-1 py-3 px-4 bg-gold text-ink font-semibold text-xs tracking-wider uppercase rounded-full shadow-2xl flex items-center justify-center gap-2 active:scale-95 transition-transform"
         >
-          <Calendar size={15} /> Book a shoot
+          <Calendar size={15} /> Book a Slot
         </Link>
         <a
           href="https://wa.me/919876543210?text=Hi%20JK,%20I%20am%20interested%20in%20discussing%20a%20project."

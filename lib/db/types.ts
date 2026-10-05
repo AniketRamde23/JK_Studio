@@ -246,3 +246,18 @@ export interface SiteSettings {
   gstPercentage: number;
   autoWatermark: boolean;
 }
+
+export type SlotRequestStatus = 'NEW' | 'CONTACTED' | 'CONFIRMED' | 'COMPLETED' | 'CANCELLED';
+
+export interface SlotRequest {
+  id: string;
+  publicId: string;
+  eventName: string;
+  date: string;
+  time: string;
+  customerName: string;
+  phone: string;
+  notes?: string;
+  status: SlotRequestStatus;
+  createdAt: string;
+}

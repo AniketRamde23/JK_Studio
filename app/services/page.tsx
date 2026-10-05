@@ -73,7 +73,7 @@ export default function ServicesPage() {
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold text-ink font-semibold text-xs tracking-wider uppercase hover:bg-gold-hi transition-colors shadow-lg shadow-gold/15"
                       >
                         <Calendar size={14} />
-                        <span>Book this service</span>
+                        <span>Request a Slot</span>
                       </Link>
                     </div>
                   </div>
@@ -134,7 +134,7 @@ export default function ServicesPage() {
                               : 'border border-ink-line bg-ink-curtain text-text hover:border-gold hover:text-gold'
                           }`}
                         >
-                          <span>Select Package</span>
+                          <span>Request Slot</span>
                           <ArrowRight size={13} />
                         </Link>
                       </div>

@@ -26,7 +26,7 @@ export function FinalCTA() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-gold text-ink font-semibold text-xs tracking-wider uppercase hover:bg-gold-hi shadow-lg hover:shadow-gold/20 transition-all duration-200"
           >
             <Calendar size={15} />
-            <span>Book a Shoot</span>
+            <span>Book a Slot</span>
           </Link>
 
           <Link

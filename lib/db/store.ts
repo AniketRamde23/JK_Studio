@@ -16,7 +16,9 @@ import {
   Testimonial,
   SiteSettings,
   PriceSnapshot,
-  Customer
+  Customer,
+  SlotRequest,
+  SlotRequestStatus
 } from './types';
 import {
   initialSiteSettings,
@@ -31,7 +33,8 @@ import {
   initialBlockedDates,
   initialBookings,
   initialActingEnquiries,
-  initialContactMessages
+  initialContactMessages,
+  initialSlotRequests
 } from './seed-data';
 
 // Singleton in-memory persistent store with clean operations
@@ -47,6 +50,7 @@ class DatabaseStore {
   private testimonials: Testimonial[] = [...initialTestimonials];
   private blockedDates: BlockedDate[] = [...initialBlockedDates];
   private bookings: Booking[] = [...initialBookings];
+  private slotRequests: SlotRequest[] = [...initialSlotRequests];
   private holds: Hold[] = [];
   private statusHistory: BookingStatusHistory[] = [];
   private actingEnquiries: ActingEnquiry[] = [...initialActingEnquiries];
@@ -512,8 +516,63 @@ class DatabaseStore {
     return newMsg;
   }
 
+  // --- Simple Slot Requests (Book a Slot) ---
+  getSlotRequests(): SlotRequest[] {
+    return [...this.slotRequests].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  }
+
+  getSlotRequestById(id: string): SlotRequest | undefined {
+    return this.slotRequests.find(r => r.id === id);
+  }
+
+  createSlotRequest(data: {
+    eventName: string;
+    date: string;
+    time: string;
+    customerName: string;
+    phone: string;
+    notes?: string;
+  }): SlotRequest {
+    const counter = this.slotRequests.length + 1;
+    const currentYear = new Date().getFullYear();
+    const publicId = `SLOT-${currentYear}-${String(counter).padStart(4, '0')}`;
+    const newRequest: SlotRequest = {
+      id: `slot_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+      publicId,
+      eventName: data.eventName.trim(),
+      date: data.date,
+      time: data.time,
+      customerName: data.customerName.trim(),
+      phone: data.phone.trim(),
+      notes: data.notes?.trim() || undefined,
+      status: 'NEW',
+      createdAt: new Date().toISOString(),
+    };
+    this.slotRequests.unshift(newRequest);
+    return newRequest;
+  }
+
+  updateSlotRequestStatus(id: string, status: SlotRequestStatus): SlotRequest | null {
+    const req = this.slotRequests.find(r => r.id === id);
+    if (!req) return null;
+    req.status = status;
+    return req;
+  }
+
+  deleteSlotRequest(id: string): boolean {
+    const idx = this.slotRequests.findIndex(r => r.id === id);
+    if (idx === -1) return false;
+    this.slotRequests.splice(idx, 1);
+    return true;
+  }
+
   // --- Dashboard KPIs ---
   getDashboardStats() {
+    const totalSlotRequests = this.slotRequests.length;
+    const newSlotRequests = this.slotRequests.filter(s => s.status === 'NEW').length;
+    const contactedSlotRequests = this.slotRequests.filter(s => s.status === 'CONTACTED').length;
+    const confirmedSlotRequests = this.slotRequests.filter(s => s.status === 'CONFIRMED').length;
+
     const totalBookings = this.bookings.length;
     const pendingBookings = this.bookings.filter(b => b.status === 'PENDING').length;
     const confirmedBookings = this.bookings.filter(b => b.status === 'CONFIRMED' || b.status === 'ADVANCE_PAID' || b.status === 'SCHEDULED').length;
@@ -527,6 +586,10 @@ class DatabaseStore {
     const newEnquiriesCount = this.actingEnquiries.filter(e => e.status === 'NEW').length;
 
     return {
+      totalSlotRequests,
+      newSlotRequests,
+      contactedSlotRequests,
+      confirmedSlotRequests,
       totalBookings,
       pendingBookings,
       confirmedBookings,
