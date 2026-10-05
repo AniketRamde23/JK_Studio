@@ -247,7 +247,7 @@ export function BookingWizard({ initialEvent }: Props) {
           </div>
 
           {/* Requested Details Box */}
-          <div className="p-5 rounded-xl bg-background/80 border border-border/80 text-left space-y-2.5">
+          <div className="p-5 rounded-xl bg-ink-curtain border border-ink-line text-left space-y-2.5">
             <p className="text-xs uppercase tracking-wider text-text-muted font-mono">
               I've received your request for:
             </p>
@@ -268,7 +268,7 @@ export function BookingWizard({ initialEvent }: Props) {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/"
-              className="w-full sm:w-auto px-6 py-3 rounded-lg bg-surface-elevated border border-border hover:border-gold/50 text-text text-sm font-medium transition-colors"
+              className="w-full sm:w-auto px-6 py-3 rounded-lg bg-ink-curtain border border-ink-line hover:border-gold/50 text-text text-sm font-medium transition-colors"
             >
               Back to Website
             </Link>
@@ -294,7 +294,7 @@ export function BookingWizard({ initialEvent }: Props) {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="relative rounded-2xl bg-surface/80 border border-border/80 p-6 sm:p-8 backdrop-blur-xl shadow-2xl"
+        className="relative rounded-2xl bg-ink-stage border border-ink-line p-6 sm:p-8 backdrop-blur-xl shadow-2xl"
       >
         <div className="text-center mb-8 space-y-1.5">
           <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-gold font-semibold">
@@ -338,7 +338,7 @@ export function BookingWizard({ initialEvent }: Props) {
                     className={`p-2.5 rounded-lg border text-left text-xs transition-all flex items-center gap-2 ${
                       isSelected
                         ? 'border-gold bg-gold/15 text-text font-medium shadow-sm shadow-gold/10'
-                        : 'border-border/80 bg-background/50 hover:bg-surface-elevated text-text-muted hover:text-text'
+                        : 'border-ink-line bg-ink-curtain hover:bg-ink-line/40 text-text-muted hover:text-text'
                     }`}
                   >
                     <IconComponent className={`w-3.5 h-3.5 ${isSelected ? 'text-gold' : 'text-text-muted'}`} />
@@ -363,7 +363,7 @@ export function BookingWizard({ initialEvent }: Props) {
                     setCustomEvent(e.target.value);
                     setEventName(e.target.value);
                   }}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-background border border-gold/40 text-text placeholder:text-text-muted/60 text-xs sm:text-sm focus:outline-none focus:border-gold"
+                  className="w-full px-4 py-3 rounded-lg bg-ink-curtain border border-gold/60 text-text placeholder:text-text-muted/60 text-sm focus:outline-none focus:border-gold"
                   autoFocus
                 />
               </motion.div>
@@ -404,12 +404,12 @@ export function BookingWizard({ initialEvent }: Props) {
             </div>
 
             {/* Interactive Calendar Card */}
-            <div className="p-4 rounded-xl bg-background/80 border border-border/80 space-y-3">
+            <div className="p-4 rounded-xl bg-ink-curtain border border-ink-line space-y-3">
               <div className="flex items-center justify-between text-xs">
                 <button
                   type="button"
                   onClick={handlePrevMonth}
-                  className="p-1.5 rounded hover:bg-surface text-text-muted hover:text-text transition-colors"
+                  className="p-1.5 rounded hover:bg-ink-line text-text-muted hover:text-text transition-colors"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
@@ -481,7 +481,7 @@ export function BookingWizard({ initialEvent }: Props) {
 
               {/* Selected date readout */}
               {selectedDate ? (
-                <div className="pt-2 border-t border-border/60 text-xs flex items-center justify-between text-text">
+                <div className="pt-2 border-t border-ink-line text-xs flex items-center justify-between text-text">
                   <span className="text-text-muted">Selected Date:</span>
                   <span className="font-mono text-gold font-medium">
                     {formatDisplayDate(selectedDate)}
@@ -515,7 +515,7 @@ export function BookingWizard({ initialEvent }: Props) {
                     className={`px-3 py-1.5 rounded-lg border text-xs font-mono transition-all ${
                       isSelected
                         ? 'border-gold bg-gold/15 text-gold font-semibold'
-                        : 'border-border/80 bg-background/50 hover:bg-surface-elevated text-text-muted hover:text-text'
+                        : 'border-ink-line bg-ink-curtain hover:bg-ink-line/40 text-text-muted hover:text-text'
                     }`}
                   >
                     {t}
@@ -539,7 +539,7 @@ export function BookingWizard({ initialEvent }: Props) {
                   placeholder="Rahul Sharma"
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
-                  className="w-full pl-10 pr-3.5 py-2.5 rounded-lg bg-background border border-border focus:border-gold text-text placeholder:text-text-muted/50 text-xs sm:text-sm focus:outline-none transition-colors"
+                  className="w-full pl-10 pr-3.5 py-3 rounded-lg bg-ink-curtain border border-ink-line focus:border-gold text-text placeholder:text-text-muted/60 text-sm focus:outline-none transition-colors"
                 />
               </div>
             </div>
@@ -558,7 +558,7 @@ export function BookingWizard({ initialEvent }: Props) {
                   placeholder="91778 56208"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full pl-12 pr-3.5 py-2.5 rounded-lg bg-background border border-border focus:border-gold text-text placeholder:text-text-muted/50 text-xs sm:text-sm focus:outline-none font-mono transition-colors"
+                  className="w-full pl-12 pr-3.5 py-3 rounded-lg bg-ink-curtain border border-ink-line focus:border-gold text-text placeholder:text-text-muted/60 text-sm focus:outline-none font-mono transition-colors"
                 />
               </div>
             </div>
@@ -570,11 +570,11 @@ export function BookingWizard({ initialEvent }: Props) {
               Notes / Venue details (Optional)
             </label>
             <textarea
-              rows={2}
+              rows={3}
               placeholder="e.g. Location is Jubilee Hills, Hyderabad. Evening 50 guests."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-3.5 py-2 rounded-lg bg-background border border-border focus:border-gold text-text placeholder:text-text-muted/40 text-xs sm:text-sm focus:outline-none resize-none transition-colors"
+              className="w-full px-3.5 py-3 rounded-lg bg-ink-curtain border border-ink-line focus:border-gold text-text placeholder:text-text-muted/60 text-sm focus:outline-none resize-none transition-colors"
             />
           </div>
 
@@ -582,7 +582,7 @@ export function BookingWizard({ initialEvent }: Props) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3.5 px-6 rounded-xl bg-gold hover:bg-gold-light text-background font-semibold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-gold/20 hover:shadow-gold/30 active:scale-[0.99] transition-all disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+            className="w-full py-3.5 px-6 rounded-xl bg-gold hover:bg-gold-hi text-ink font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-gold/20 hover:shadow-gold/30 active:scale-[0.99] transition-all disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
           >
             {isSubmitting ? (
               <>

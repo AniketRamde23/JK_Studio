@@ -34,6 +34,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Form Controls - Guarantee dark backgrounds and high-contrast visible text */
+input, textarea, select {
+  background-color: #151515 !important;
+  color: #F2EFE9 !important;
+  border-color: #262626;
+  -webkit-text-fill-color: #F2EFE9;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #71717A !important;
+  -webkit-text-fill-color: #71717A;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #C8A96B !important;
+  outline: none;
+}
+
+/* Prevent Chrome autofill from setting white background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #F2EFE9 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #151515 inset !important;
+  box-shadow: 0 0 0px 1000px #151515 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 /* Selection */
 ::selection {
   background-color: rgba(200, 169, 107, 0.3);

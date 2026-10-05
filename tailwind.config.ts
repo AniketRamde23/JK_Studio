@@ -36,6 +36,12 @@ const config: Config = {
           limited: "#D9A441",
           booked: "#6B6B6B",
           error: "#D9534F",
+        },
+        background: "#050505",
+        border: "#262626",
+        surface: {
+          DEFAULT: "#0D0D0D",
+          elevated: "#151515",
         }
       },
       fontFamily: {
