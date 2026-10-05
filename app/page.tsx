@@ -7,14 +7,12 @@ import { TwoWorlds } from '@/components/home/TwoWorlds';
 import { ShowreelTeaser } from '@/components/home/ShowreelTeaser';
 import { FeaturedPhotography } from '@/components/home/FeaturedPhotography';
 import { ServicesPreview } from '@/components/home/ServicesPreview';
-import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { FinalCTA } from '@/components/home/FinalCTA';
 import { ArrowDown, Calendar, Film } from 'lucide-react';
 
 export default function HomePage() {
   const services = db.getServices();
   const galleryImages = db.getGalleryImages();
-  const testimonials = db.getTestimonials();
 
   return (
     <>
@@ -91,8 +89,6 @@ export default function HomePage() {
         {/* SECTION E: SERVICES PREVIEW (PRD Sec 7.5 & Design Spec Sec 4.1 E) */}
         <ServicesPreview services={services} />
 
-        {/* SECTION F: TESTIMONIALS (PRD Sec 7.10 & Design Spec Sec 4.1 F) */}
-        <TestimonialsSection testimonials={testimonials} />
 
         {/* SECTION G: FINAL CTA + FOOTER (PRD Sec 6.3 G) */}
         <FinalCTA />
