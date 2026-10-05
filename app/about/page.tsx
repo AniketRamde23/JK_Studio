@@ -42,7 +42,7 @@ export default function AboutPage() {
         {/* Two-Column Bio Section (Design Spec 4.2) */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* 4:5 Portrait Left */}
-          <div className="lg:col-span-5 relative aspect-[4/5] rounded-2xl overflow-hidden border border-ink-line bg-ink-curtain shadow-2xl sticky top-28">
+          <div className="lg:col-span-5 relative aspect-[4/5] rounded-2xl overflow-hidden border border-ink-line bg-ink-curtain shadow-2xl lg:sticky lg:top-28 max-w-md mx-auto lg:max-w-none w-full">
             <Image
               src="/images/jk_logo.jpg"
               alt="Kashinath Jale Portrait with Camera"
@@ -67,7 +67,7 @@ export default function AboutPage() {
               <span className="text-xs font-mono uppercase tracking-[0.25em] text-gold">
                 Philosophy & Background
               </span>
-              <h1 className="font-serif text-3xl sm:text-5xl text-text font-normal leading-tight">
+              <h1 className="font-serif text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-text font-normal leading-tight">
                 "The site is a camera. Every moment has its lens."
               </h1>
               <p className="font-serif italic text-lg text-gold-hi">

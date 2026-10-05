@@ -1,9 +1,16 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/navigation/Navbar';
 import { MediaProtection } from '@/components/security/MediaProtection';
 import { NavigationProgress } from '@/components/navigation/NavigationProgress';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#050505',
+};
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -49,7 +56,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
-      <body className="bg-ink text-text font-sans antialiased selection:bg-gold/20 selection:text-gold-hi min-h-screen flex flex-col">
+      <body className="bg-ink text-text font-sans antialiased selection:bg-gold/20 selection:text-gold-hi min-h-screen w-full overflow-x-hidden flex flex-col">
         <NavigationProgress />
         <div className="film-grain" aria-hidden="true" />
         <MediaProtection />

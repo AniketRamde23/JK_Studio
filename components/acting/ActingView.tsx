@@ -71,7 +71,7 @@ export function ActingView({ profile }: Props) {
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div 
           onContextMenu={(e) => e.preventDefault()}
-          className="lg:col-span-5 relative aspect-[4/5] rounded-2xl overflow-hidden border border-ink-line bg-ink-curtain shadow-2xl select-none"
+          className="lg:col-span-5 relative aspect-[4/5] rounded-2xl overflow-hidden border border-ink-line bg-ink-curtain shadow-2xl select-none max-w-md mx-auto lg:max-w-none w-full"
         >
           <Image
             src="/photos/optimized/5.webp"

@@ -92,32 +92,32 @@ export function ShowreelTeaser() {
         )}
 
         {/* Bottom Bar Info & Quick Audio/Screen Controls */}
-        <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between pointer-events-none">
+        <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pointer-events-none">
           <div className="space-y-1">
-            <span className="text-xs font-mono uppercase tracking-wider text-gold-hi bg-ink/80 px-2.5 py-1 rounded backdrop-blur-sm border border-gold/30">
+            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-gold-hi bg-ink/80 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded backdrop-blur-sm border border-gold/30">
               Featured Reel 2025
             </span>
-            <h3 className="font-serif text-lg sm:text-xl text-text font-medium drop-shadow-md">
+            <h3 className="font-serif text-sm sm:text-xl text-text font-medium drop-shadow-md line-clamp-1 sm:line-clamp-none">
               Vajra / Shadows in the Mist / Malabar
             </h3>
           </div>
 
-          <div className="flex items-center gap-3 pointer-events-auto">
+          <div className="flex items-center gap-2 sm:gap-3 pointer-events-auto self-end sm:self-auto">
             <button
               onClick={toggleMute}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-ink/85 border border-ink-line text-text hover:text-gold hover:border-gold/50 backdrop-blur-md transition-colors text-xs font-mono"
+              className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-ink/85 border border-ink-line text-text hover:text-gold hover:border-gold/50 backdrop-blur-md transition-colors text-[11px] sm:text-xs font-mono"
               aria-label={isMuted ? "Unmute showreel audio" : "Mute showreel audio"}
             >
-              {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} className="text-gold" />}
+              {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} className="text-gold" />}
               <span>{isMuted ? 'Sound Off' : 'Sound On'}</span>
             </button>
 
             <button
               onClick={toggleFullscreen}
-              className="p-2 rounded-full bg-ink/85 border border-ink-line text-text hover:text-gold hover:border-gold/50 backdrop-blur-md transition-colors"
+              className="p-1.5 sm:p-2 rounded-full bg-ink/85 border border-ink-line text-text hover:text-gold hover:border-gold/50 backdrop-blur-md transition-colors"
               aria-label="Fullscreen video"
             >
-              <Maximize2 size={15} />
+              <Maximize2 size={14} />
             </button>
           </div>
         </div>

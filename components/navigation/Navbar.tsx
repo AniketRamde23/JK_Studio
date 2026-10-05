@@ -96,7 +96,7 @@ export function Navbar() {
                   prefetch={true}
                   onMouseEnter={() => router.prefetch(link.href)}
                   onTouchStart={() => router.prefetch(link.href)}
-                  className={`group relative px-4 py-1.5 text-sm transition-colors duration-200 ${
+                  className={`group relative px-2.5 lg:px-4 py-1.5 text-xs lg:text-sm transition-colors duration-200 ${
                     isActive ? 'text-text font-medium' : 'text-text-muted hover:text-text'
                   }`}
                 >
@@ -157,7 +157,7 @@ export function Navbar() {
             animate={{ clipPath: 'circle(150% at 92% 5%)', opacity: 1 }}
             exit={{ clipPath: 'circle(0% at 92% 5%)', opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-ink-stage flex flex-col justify-center px-8 md:hidden"
+            className="fixed inset-0 z-40 bg-ink-stage flex flex-col justify-center px-6 sm:px-8 py-20 overflow-y-auto md:hidden"
           >
             <div className="space-y-6">
               <span className="text-[11px] font-mono tracking-widest text-gold uppercase block mb-2">
@@ -215,24 +215,26 @@ export function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Mobile Sticky Bottom Bar (PRD Sec 6.2 & Design Spec 3.1) */}
-      <div className="md:hidden fixed bottom-4 left-4 right-4 z-40 flex items-center gap-3">
-        <Link
-          href="/book"
-          className="flex-1 py-3 px-4 bg-gold text-ink font-semibold text-xs tracking-wider uppercase rounded-full shadow-2xl flex items-center justify-center gap-2 active:scale-95 transition-transform"
-        >
-          <Calendar size={15} /> Book a Slot
-        </Link>
-        <a
-          href="https://wa.me/919177856208?text=Hi%20Kashinath,%20I%20am%20interested%20in%20discussing%20a%20project."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-12 h-12 bg-ink-curtain border border-ink-line rounded-full flex items-center justify-center text-[#25D366] shadow-xl hover:border-gold/40 active:scale-95 transition-all"
-          aria-label="Chat on WhatsApp"
-        >
-          <MessageSquare size={20} />
-        </a>
-      </div>
+      {/* Mobile Sticky Bottom Bar (PRD Sec 6.2 & Design Spec 3.1) - hidden on /book and /admin */}
+      {!pathname.startsWith('/book') && !pathname.startsWith('/admin') && (
+        <div className="md:hidden fixed bottom-4 left-4 right-4 z-40 flex items-center gap-3">
+          <Link
+            href="/book"
+            className="flex-1 py-3 px-4 bg-gold text-ink font-semibold text-xs tracking-wider uppercase rounded-full shadow-2xl flex items-center justify-center gap-2 active:scale-95 transition-transform"
+          >
+            <Calendar size={15} /> Book a Slot
+          </Link>
+          <a
+            href="https://wa.me/919177856208?text=Hi%20Kashinath,%20I%20am%20interested%20in%20discussing%20a%20project."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 bg-ink-curtain border border-ink-line rounded-full flex items-center justify-center text-[#25D366] shadow-xl hover:border-gold/40 active:scale-95 transition-all"
+            aria-label="Chat on WhatsApp"
+          >
+            <MessageSquare size={20} />
+          </a>
+        </div>
+      )}
     </>
   );
 }

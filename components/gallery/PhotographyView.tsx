@@ -213,7 +213,7 @@ export function PhotographyView({ images }: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[80] bg-ink/95 backdrop-blur-2xl flex flex-col justify-between p-4 sm:p-8"
+            className="fixed inset-0 z-[80] bg-ink/95 backdrop-blur-2xl flex flex-col justify-between p-4 sm:p-8 overflow-y-auto max-h-screen"
             onClick={() => setActiveImage(null)}
           >
             {/* Lightbox Top */}
@@ -240,22 +240,22 @@ export function PhotographyView({ images }: Props) {
             >
               <button
                 onClick={handlePrev}
-                className="absolute left-2 sm:left-6 z-10 w-12 h-12 rounded-full border border-ink-line bg-ink/70 text-text hover:text-gold flex items-center justify-center backdrop-blur-md transition-colors"
+                className="absolute left-2 sm:left-6 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-ink-line bg-ink/70 text-text hover:text-gold flex items-center justify-center backdrop-blur-md transition-colors"
                 aria-label="Previous photo"
               >
-                <ChevronLeft size={24} />
+                <ChevronLeft size={22} />
               </button>
 
               <div 
                 onContextMenu={(e) => e.preventDefault()}
-                className="relative max-w-5xl max-h-[75vh] w-full h-full flex items-center justify-center select-none"
+                className="relative max-w-5xl max-h-[65vh] sm:max-h-[75vh] w-full h-full flex items-center justify-center select-none"
               >
                 <img
                   src={activeImage.url}
                   alt={activeImage.title}
                   draggable={false}
                   onContextMenu={(e) => e.preventDefault()}
-                  className="max-h-[75vh] max-w-full object-contain rounded-md select-none pointer-events-none"
+                  className="max-h-[65vh] sm:max-h-[75vh] max-w-full object-contain rounded-md select-none pointer-events-none"
                 />
 
                 {/* Transparent Security Shield Overlay */}
@@ -272,10 +272,10 @@ export function PhotographyView({ images }: Props) {
 
               <button
                 onClick={handleNext}
-                className="absolute right-2 sm:right-6 z-10 w-12 h-12 rounded-full border border-ink-line bg-ink/70 text-text hover:text-gold flex items-center justify-center backdrop-blur-md transition-colors"
+                className="absolute right-2 sm:right-6 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-ink-line bg-ink/70 text-text hover:text-gold flex items-center justify-center backdrop-blur-md transition-colors"
                 aria-label="Next photo"
               >
-                <ChevronRight size={24} />
+                <ChevronRight size={22} />
               </button>
             </div>
 

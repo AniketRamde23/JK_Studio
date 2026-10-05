@@ -42,7 +42,7 @@ export default function ServicesPage() {
               <section key={service.id} id={service.slug} className="space-y-12">
                 {/* Hero Feature Row */}
                 <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
-                  <div className={`lg:col-span-6 relative aspect-[16/10] rounded-2xl overflow-hidden border border-ink-line bg-ink-curtain shadow-2xl ${isReversed ? 'lg:order-2' : ''}`}>
+                  <div className={`lg:col-span-6 relative aspect-[16/10] rounded-2xl overflow-hidden border border-ink-line bg-ink-curtain shadow-2xl max-w-lg mx-auto lg:max-w-none w-full ${isReversed ? 'lg:order-2' : ''}`}>
                     <Image
                       src={service.coverImage}
                       alt={service.name}
@@ -80,7 +80,7 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Packages Table / Cards for this service (Design Spec 3.3) */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
                   {servicePackages.map((pkg) => (
                     <div
                       key={pkg.id}

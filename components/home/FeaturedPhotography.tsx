@@ -65,7 +65,7 @@ export function FeaturedPhotography({ images }: Props) {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.4 }}
                 className={`relative flex-shrink-0 rounded-2xl overflow-hidden border border-ink-line bg-ink-curtain snap-start cursor-pointer group shadow-2xl ${
-                  isLandscape ? 'w-[340px] sm:w-[500px] h-[380px]' : 'w-[250px] sm:w-[300px] h-[380px]'
+                  isLandscape ? 'w-[280px] sm:w-[500px] h-[300px] sm:h-[380px]' : 'w-[220px] sm:w-[300px] h-[300px] sm:h-[380px]'
                 }`}
                 data-cursor="photo"
               >

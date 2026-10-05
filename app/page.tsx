@@ -19,7 +19,7 @@ export default function HomePage() {
 
       <main className="min-h-screen">
         {/* SECTION A: HERO (PRD Sec 6.3 & 7.1, Design Spec Sec 4.1 Section A) */}
-        <section className="relative min-h-[92vh] md:min-h-screen flex items-end pb-16 md:pb-24 px-5 sm:px-8 max-w-7xl mx-auto overflow-hidden">
+        <section className="relative min-h-[90svh] sm:min-h-[92vh] md:min-h-screen flex items-end pb-16 md:pb-24 px-5 sm:px-8 max-w-7xl mx-auto overflow-hidden">
           {/* 3D Scene Layer (Occupies right 60% on desktop, lazy loaded) */}
           <HeroSceneWrapper />
 
@@ -34,7 +34,7 @@ export default function HomePage() {
               </div>
 
               {/* Display XL Name (Design Spec 2.2) */}
-              <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl text-text font-normal tracking-tight leading-[0.95]">
+              <h1 className="font-serif text-4xl xs:text-5xl sm:text-7xl md:text-8xl text-text font-normal tracking-tight leading-[0.95] break-words">
                 Kashinath Jale
               </h1>
               <span className="text-xs sm:text-sm font-mono tracking-widest text-gold-hi block pt-1">

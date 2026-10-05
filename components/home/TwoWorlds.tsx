@@ -35,7 +35,7 @@ export function TwoWorlds() {
             scale: activeWorld === 'actor' ? 1.01 : 1,
           }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative rounded-xl overflow-hidden border border-ink-line bg-ink-stage flex flex-col justify-end p-8 md:p-12 shadow-2xl"
+          className="group relative rounded-xl overflow-hidden border border-ink-line bg-ink-stage flex flex-col justify-end p-6 sm:p-8 md:p-12 min-h-[440px] sm:min-h-[520px] shadow-2xl"
           data-cursor="photo"
         >
           {/* Background Poster Image */}
@@ -88,7 +88,7 @@ export function TwoWorlds() {
             scale: activeWorld === 'photographer' ? 1.01 : 1,
           }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative rounded-xl overflow-hidden border border-ink-line bg-ink-stage flex flex-col justify-end p-8 md:p-12 shadow-2xl"
+          className="group relative rounded-xl overflow-hidden border border-ink-line bg-ink-stage flex flex-col justify-end p-6 sm:p-8 md:p-12 min-h-[440px] sm:min-h-[520px] shadow-2xl"
           data-cursor="photo"
         >
           {/* Background Photography Image */}
