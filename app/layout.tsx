@@ -18,15 +18,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'JK — Actor & Cinematic Photography Portfolio',
+  title: 'Kashinath Jale (JK) — Actor & Cinematic Photography Portfolio',
   description: 'I perform stories on screen. I preserve stories through my lens. Cinematic portfolio, showreel, and online photography booking.',
-  keywords: ['Actor', 'Cinematic Photography', 'Wedding Photography', 'Hyderabad Actor', 'JK Photography', 'Editorial Stills'],
-  authors: [{ name: 'JK' }],
+  keywords: ['Kashinath Jale', 'Actor', 'Cinematic Photography', 'Wedding Photography', 'Hyderabad Actor', 'JK Photography', 'Editorial Stills'],
+  authors: [{ name: 'Kashinath Jale' }],
   openGraph: {
-    title: 'JK — Actor & Cinematic Photography Portfolio',
+    title: 'Kashinath Jale (JK) — Actor & Cinematic Photography Portfolio',
     description: 'I perform stories on screen. I preserve stories through my lens.',
     url: 'https://actorjk.com',
-    siteName: 'JK Actor & Photography',
+    siteName: 'Kashinath Jale — Actor & Photography',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200',

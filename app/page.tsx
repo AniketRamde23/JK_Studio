@@ -36,9 +36,12 @@ export default function HomePage() {
               </div>
 
               {/* Display XL Name (Design Spec 2.2) */}
-              <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-text font-normal tracking-tight leading-[0.9]">
-                JK
+              <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl text-text font-normal tracking-tight leading-[0.95]">
+                Kashinath Jale
               </h1>
+              <span className="text-xs sm:text-sm font-mono tracking-widest text-gold-hi block pt-1">
+                (JK Studio)
+              </span>
             </div>
 
             <p className="font-serif italic text-xl sm:text-2xl md:text-3xl text-text/90 font-light leading-snug">

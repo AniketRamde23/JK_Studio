@@ -6,8 +6,8 @@ import { Footer } from '@/components/navigation/Footer';
 import { Camera, Film, Calendar, Award, Sparkles, MapPin } from 'lucide-react';
 
 export const metadata = {
-  title: 'About JK — Actor, Photographer, Storyteller',
-  description: 'The journey, artistic philosophy, and career milestones of JK spanning classical screen acting and fine-art photography.',
+  title: 'About Kashinath Jale (JK) — Actor, Photographer, Storyteller',
+  description: 'The journey, artistic philosophy, and career milestones of Kashinath Jale (JK) spanning classical screen acting and fine-art photography.',
 };
 
 export default function AboutPage() {
@@ -45,7 +45,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5 relative aspect-[4/5] rounded-2xl overflow-hidden border border-ink-line bg-ink-curtain shadow-2xl sticky top-28">
             <Image
               src="/images/jk_logo.jpg"
-              alt="JK Portrait with Camera"
+              alt="Kashinath Jale Portrait with Camera"
               fill
               className="object-cover object-center"
               priority
@@ -56,7 +56,7 @@ export default function AboutPage() {
                 The Dual Identity
               </span>
               <p className="font-serif text-2xl text-text font-medium">
-                JK
+                Kashinath Jale (JK)
               </p>
             </div>
           </div>
@@ -77,10 +77,10 @@ export default function AboutPage() {
 
             <div className="space-y-4 text-sm text-text-muted leading-relaxed font-sans">
               <p>
-                Art has never been an isolated pursuit for JK. As an actor, the craft demands surrendering entirely to character—subordinating vanity to human vulnerability, tension, and kinetic grace.
+                Art has never been an isolated pursuit for Kashinath Jale. As an actor, the craft demands surrendering entirely to character—subordinating vanity to human vulnerability, tension, and kinetic grace.
               </p>
               <p>
-                Behind the lens, this empathy transforms into sight. Knowing how it feels to stand beneath scorching tungsten keys allows JK to photograph clients and artists not as subjects to be posed, but as stories in motion.
+                Behind the lens, this empathy transforms into sight. Knowing how it feels to stand beneath scorching tungsten keys allows Kashinath to photograph clients and artists not as subjects to be posed, but as stories in motion.
               </p>
               <p>
                 Whether orchestrating a 4K action thriller or directing a quiet moment between a couple at dusk, the commitment remains constant: authentic truth, dramatic composure, and uncompromising aesthetic rigor.

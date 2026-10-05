@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, MessageSquare, Calendar } from 'lucide-react';
+import { Menu, X, MessageSquare, Calendar, Phone } from 'lucide-react';
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
@@ -114,6 +114,13 @@ export function Navbar() {
 
           {/* Right Action */}
           <div className="hidden md:flex items-center gap-4">
+            <a
+              href="tel:+919177856208"
+              className="hidden lg:flex items-center gap-2 text-xs font-mono text-text-muted hover:text-gold transition-colors py-1 px-2.5 rounded-full border border-ink-line/60 bg-ink-curtain/50"
+            >
+              <Phone size={13} className="text-gold" />
+              <span>+91 91778 56208</span>
+            </a>
             <Link
               href="/book"
               className="relative inline-flex items-center justify-center px-5 py-2 text-xs font-medium tracking-wider uppercase text-ink bg-gold hover:bg-gold-hi rounded-full transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-gold/20 hover:shadow-lg"
@@ -168,8 +175,15 @@ export function Navbar() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
-                className="pt-6 border-t border-ink-line space-y-4"
+                className="pt-6 border-t border-ink-line space-y-3"
               >
+                <a
+                  href="tel:+919177856208"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 border border-ink-line rounded-full bg-ink-curtain text-xs font-mono text-gold-hi hover:border-gold transition-colors"
+                >
+                  <Phone size={14} />
+                  <span>Call +91 91778 56208</span>
+                </a>
                 <Link
                   href="/book"
                   onClick={() => setMobileMenuOpen(false)}
@@ -180,7 +194,7 @@ export function Navbar() {
                 <Link
                   href="/admin"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full inline-flex items-center justify-center py-2.5 text-xs text-text-muted hover:text-text"
+                  className="w-full inline-flex items-center justify-center py-2 text-xs text-text-muted hover:text-text"
                 >
                   Admin command center
                 </Link>
@@ -199,7 +213,7 @@ export function Navbar() {
           <Calendar size={15} /> Book a Slot
         </Link>
         <a
-          href="https://wa.me/919876543210?text=Hi%20JK,%20I%20am%20interested%20in%20discussing%20a%20project."
+          href="https://wa.me/919177856208?text=Hi%20Kashinath,%20I%20am%20interested%20in%20discussing%20a%20project."
           target="_blank"
           rel="noopener noreferrer"
           className="w-12 h-12 bg-ink-curtain border border-ink-line rounded-full flex items-center justify-center text-[#25D366] shadow-xl hover:border-gold/40 active:scale-95 transition-all"

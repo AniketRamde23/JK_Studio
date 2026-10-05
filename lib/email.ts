@@ -104,7 +104,7 @@ Please contact the customer to discuss the requirements and pricing.
         <table border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 24px;">
           <tr>
             <td style="border-radius: 6px; background-color: #25d366;">
-              <a href="https://wa.me/${request.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${request.customerName}, thanks for your slot request for ${request.eventName} on ${request.date} with JK Studio!`)}" target="_blank" style="padding: 12px 20px; border-radius: 6px; font-size: 14px; color: #ffffff; text-decoration: none; font-weight: 600; display: inline-block;">
+              <a href="https://wa.me/${request.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${request.customerName}, thanks for your slot request for ${request.eventName} on ${request.date} with Kashinath Jale (JK Studio)!`)}" target="_blank" style="padding: 12px 20px; border-radius: 6px; font-size: 14px; color: #ffffff; text-decoration: none; font-weight: 600; display: inline-block;">
                 💬 Message on WhatsApp
               </a>
             </td>

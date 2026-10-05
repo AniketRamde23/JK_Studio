@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Instagram, Mail, Phone, ArrowUpRight } from 'lucide-react';
+import { Instagram, Mail, Phone, Calendar, ArrowUpRight } from 'lucide-react';
 
 export function Footer() {
   const pathname = usePathname();
@@ -30,10 +30,10 @@ export function Footer() {
               </div>
               <div>
                 <span className="font-serif text-2xl text-text font-medium block leading-none">
-                  JK
+                  Kashinath Jale
                 </span>
                 <span className="text-[11px] uppercase tracking-widest text-gold font-mono block mt-1.5">
-                  Actor · Photographer · Storyteller
+                  Actor · Photographer · Storyteller (JK)
                 </span>
               </div>
             </div>
@@ -96,13 +96,28 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
+                <a href="tel:+919177856208" className="hover:text-gold transition-colors flex items-center gap-2 font-mono text-gold font-medium">
+                  <Phone size={13} className="text-gold" /> +91 91778 56208
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/919177856208"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 transition-colors flex items-center gap-2 font-mono text-emerald-400/90"
+                >
+                  <span className="text-emerald-400">💬</span> WhatsApp: +91 91778 56208
+                </a>
+              </li>
+              <li>
                 <Link href="/contact" className="hover:text-gold transition-colors flex items-center gap-2">
                   <Mail size={13} className="text-gold" /> Casting & Collaboration
                 </Link>
               </li>
               <li>
                 <Link href="/book" className="hover:text-gold transition-colors flex items-center gap-2">
-                  <Phone size={13} className="text-gold" /> Reserve Photography Slot
+                  <Calendar size={13} className="text-gold" /> Reserve Photography Slot
                 </Link>
               </li>
               <li>
@@ -123,7 +138,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-ink-line flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div>
-            &copy; {new Date().getFullYear()} JK. All rights reserved. GST-compliant invoicing available.
+            &copy; {new Date().getFullYear()} Kashinath Jale (JK Studio). All rights reserved. GST-compliant invoicing available.
           </div>
           <div className="text-text-muted font-mono text-[11px]">
             Designed with cinematic rigor & passion.

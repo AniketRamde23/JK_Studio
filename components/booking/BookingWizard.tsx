@@ -273,13 +273,13 @@ export function BookingWizard({ initialEvent }: Props) {
               Back to Website
             </Link>
             <a
-              href={`https://wa.me/919876543210?text=${encodeURIComponent(`Hi JK, I just submitted a slot request for ${submittedData.eventName} on ${formatDisplayDate(submittedData.date)} (${submittedData.time}). Looking forward to speaking with you!`)}`}
+              href={`https://wa.me/919177856208?text=${encodeURIComponent(`Hi Kashinath, I just submitted a slot request for ${submittedData.eventName} on ${formatDisplayDate(submittedData.date)} (${submittedData.time}). Looking forward to speaking with you!`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-6 py-3 rounded-lg bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] text-sm font-medium flex items-center justify-center gap-2 transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp JK Directly</span>
+              <span>WhatsApp (+91 91778 56208)</span>
             </a>
           </div>
         </motion.div>
@@ -555,7 +555,7 @@ export function BookingWizard({ initialEvent }: Props) {
                 <input
                   type="tel"
                   required
-                  placeholder="98765 43210"
+                  placeholder="91778 56208"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full pl-12 pr-3.5 py-2.5 rounded-lg bg-background border border-border focus:border-gold text-text placeholder:text-text-muted/50 text-xs sm:text-sm focus:outline-none font-mono transition-colors"

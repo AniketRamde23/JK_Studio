@@ -55,7 +55,7 @@ export default function ContactPage() {
             Direct Communications
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl text-text font-normal">
-            Connect with JK
+            Connect with Kashinath Jale (JK)
           </h1>
           <p className="text-xs sm:text-sm text-text-muted">
             Dedicated pathways for cinematic auditions, casting inquiries, and bespoke photography commissions.
@@ -129,7 +129,7 @@ export default function ContactPage() {
                 <span>Launch Booking Engine</span>
               </Link>
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919177856208"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-ink-line bg-ink-curtain text-[#25D366] text-xs uppercase hover:border-[#25D366] transition-colors"
@@ -162,7 +162,11 @@ export default function ContactPage() {
 
               <div className="p-4 rounded-xl border border-ink-line bg-ink-stage space-y-1">
                 <span className="text-text-muted text-[11px]">Direct Management Line</span>
-                <p className="text-sm font-sans text-text font-medium">+91 98765 43210</p>
+                <p className="text-sm font-sans text-text font-medium">
+                  <a href="tel:+919177856208" className="hover:text-gold transition-colors text-gold">
+                    +91 91778 56208
+                  </a>
+                </p>
               </div>
 
               <div className="p-4 rounded-xl border border-ink-line bg-ink-stage space-y-1">

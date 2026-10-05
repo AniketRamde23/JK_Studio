@@ -47,7 +47,7 @@ export function ShowreelTeaser() {
           </h2>
         </div>
         <p className="text-text-muted text-xs sm:text-sm font-mono">
-          4K Cinematic Reel · JK Screen Performances
+          4K Cinematic Reel · Kashinath Jale Screen Performances
         </p>
       </div>
 

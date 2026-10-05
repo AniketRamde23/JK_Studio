@@ -522,7 +522,7 @@ export default function AdminDashboardPage() {
                                   <Phone size={12} />
                                 </a>
                                 <a
-                                  href={`https://wa.me/${r.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${r.customerName}, thanks for your slot request for ${r.eventName} on ${r.date} with JK Studio!`)}`}
+                                  href={`https://wa.me/${r.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${r.customerName}, thanks for your slot request for ${r.eventName} on ${r.date} with Kashinath Jale (JK Studio)!`)}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="p-1 rounded bg-emerald-500/15 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-colors"
@@ -693,7 +693,7 @@ export default function AdminDashboardPage() {
                                 <Phone size={13} />
                               </a>
                               <a
-                                href={`https://wa.me/${r.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${r.customerName}, thanks for your slot request for ${r.eventName} on ${r.date} with JK Studio!`)}`}
+                                href={`https://wa.me/${r.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${r.customerName}, thanks for your slot request for ${r.eventName} on ${r.date} with Kashinath Jale (JK Studio)!`)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-1.5 rounded-md bg-emerald-500/15 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-colors"

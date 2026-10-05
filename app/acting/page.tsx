@@ -4,8 +4,8 @@ import { Footer } from '@/components/navigation/Footer';
 import { ActingView } from '@/components/acting/ActingView';
 
 export const metadata = {
-  title: 'Acting Portfolio & Showreel — JK',
-  description: 'Screen performances, showreel, theatrical training, and casting profile for JK.',
+  title: 'Acting Portfolio & Showreel — Kashinath Jale (JK)',
+  description: 'Screen performances, showreel, theatrical training, and casting profile for Kashinath Jale.',
 };
 
 export default function ActingPage() {

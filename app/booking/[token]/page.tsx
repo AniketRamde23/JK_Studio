@@ -210,7 +210,7 @@ export default function BookingTrackerPage({
               <span>Personalized Phone Consultation</span>
             </div>
             <p className="text-text-muted leading-relaxed">
-              JK will contact you on your registered phone number according to your preferred call timing to finalize pricing, shoot coverage hours, camera crew size, and creative deliverables.
+              Kashinath Jale will contact you on your registered phone number according to your preferred call timing to finalize pricing, shoot coverage hours, camera crew size, and creative deliverables.
             </p>
           </div>
         </div>
@@ -218,13 +218,13 @@ export default function BookingTrackerPage({
         {/* Direct Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
           <a
-            href={`https://wa.me/919876543210?text=Hi%20JK,%20regarding%20my%20booking%20reference%20${booking.publicId}`}
+            href={`https://wa.me/919177856208?text=Hi%20Kashinath,%20regarding%20my%20booking%20reference%20${booking.publicId}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-emerald-600 text-white font-mono text-xs uppercase tracking-wider hover:bg-emerald-500 transition-colors shadow-lg"
           >
             <MessageSquare size={15} />
-            <span>WhatsApp JK Directly</span>
+            <span>WhatsApp (+91 91778 56208)</span>
           </a>
           <Link
             href="/"

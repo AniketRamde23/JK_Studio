@@ -17,13 +17,13 @@ import {
 import realGalleryData from './real-gallery-data.json';
 
 export const initialSiteSettings: SiteSettings = {
-  brandName: "JK",
+  brandName: "Kashinath Jale (JK Studio)",
   tagline: "I perform stories on screen. I preserve stories through my lens.",
   actorInstagram: "actor_jk_",
   photoInstagram: "jkphotography2168",
-  whatsappNumber: "+919876543210",
+  whatsappNumber: "+919177856208",
   contactEmail: "contact@actorjk.com",
-  phone: "+91 98765 43210",
+  phone: "+91 91778 56208",
   baseCity: "Hyderabad",
   advancePercentage: 30,
   gstPercentage: 18,
@@ -32,9 +32,9 @@ export const initialSiteSettings: SiteSettings = {
 
 export const initialActingProfile: ActingProfile = {
   id: "prof_1",
-  name: "JK",
-  stageName: "JK",
-  bio: "Trained in method and physical theatre, JK transitions effortlessly between high-voltage cinematic intensity and understated vulnerability. With major credits across Telugu and Hindi film industries, JK brings visceral dedication to every frame, backed by extensive training in cinematic combat, Kalaripayattu, and equestrian arts.",
+  name: "Kashinath Jale",
+  stageName: "Kashinath Jale",
+  bio: "Trained in method and physical theatre, Kashinath Jale transitions effortlessly between high-voltage cinematic intensity and understated vulnerability. With visceral dedication to every frame, backed by extensive training in cinematic combat, Kalaripayattu, and equestrian arts.",
   shortBio: "Actor · Storyteller · Classical & Modern Screen Performer based between Hyderabad & Mumbai.",
   location: "Hyderabad & Mumbai (Travels Pan-India)",
   languages: ["Telugu (Native)", "Hindi (Fluent)", "English (Fluent)", "Tamil (Conversational)"],
@@ -602,7 +602,7 @@ export const initialSlotRequests: SlotRequest[] = [
     date: "2026-10-25",
     time: "06:00 PM",
     customerName: "Rahul Sharma",
-    phone: "+91 98765 43210",
+    phone: "+91 98490 11223",
     notes: "Evening celebration with family and friends at Jubilee Hills.",
     status: "NEW",
     createdAt: "2026-10-05T09:30:00Z"
