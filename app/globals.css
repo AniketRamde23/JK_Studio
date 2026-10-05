@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --c-ink: #050505;
+  --c-stage: #0D0D0D;
+  --c-curtain: #151515;
+  --c-line: #262626;
+  --c-text: #F2EFE9;
+  --c-muted: #A0A0A0;
+  --c-gold: #C8A96B;
+  --c-gold-hi: #E3C98D;
+  --c-paper: #EDE8DF;
+  --c-paper-ink: #14120F;
+}
+
+/* Base Body Styles */
+html {
+  background-color: var(--c-ink);
+  color: var(--c-text);
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  background-color: var(--c-ink);
+  color: var(--c-text);
+  overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(200, 169, 107, 0.3);
+  color: #F2EFE9;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C8A96B;
+}
+
+/* Film Grain Overlay (PRD Sec 2.4 - 4% opacity mix-blend-mode overlay) */
+.film-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 40;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Shutter flash effect on booking confirmation */
+@keyframes shutterFlash {
+  0% { opacity: 0; }
+  25% { opacity: 0.88; }
+  100% { opacity: 0; }
+}
+
+.animate-shutter-flash {
+  animation: shutterFlash 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Focus styles */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--c-gold);
+  outline-offset: 2px;
+}
