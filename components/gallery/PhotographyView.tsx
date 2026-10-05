@@ -144,17 +144,28 @@ export function PhotographyView({ images }: Props) {
                   }`}
                   data-cursor="photo"
                 >
-                  <div className="relative w-full aspect-auto">
+                  <div 
+                    onContextMenu={(e) => e.preventDefault()}
+                    className="relative w-full aspect-auto select-none"
+                  >
                     <img
                       src={img.url}
                       alt={img.title}
                       loading="lazy"
-                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out select-none pointer-events-none"
+                    />
+
+                    {/* Transparent Click Shield */}
+                    <div 
+                      onContextMenu={(e) => e.preventDefault()}
+                      className="absolute inset-0 z-10 bg-transparent select-none" 
                     />
 
                     {/* Watermark notice watermark overlay (PRD 1.2) */}
-                    <div className="absolute top-3 right-3 text-[9px] font-mono tracking-widest uppercase px-2 py-0.5 rounded bg-black/60 text-white/70 backdrop-blur-sm pointer-events-none">
-                      © JK Photography
+                    <div className="absolute top-3 right-3 z-20 text-[9px] font-mono tracking-widest uppercase px-2 py-0.5 rounded bg-black/60 text-white/70 backdrop-blur-sm pointer-events-none select-none">
+                      © Kashinath Jale Studio
                     </div>
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -234,12 +245,28 @@ export function PhotographyView({ images }: Props) {
                 <ChevronLeft size={24} />
               </button>
 
-              <div className="relative max-w-5xl max-h-[75vh] w-full h-full flex items-center justify-center">
+              <div 
+                onContextMenu={(e) => e.preventDefault()}
+                className="relative max-w-5xl max-h-[75vh] w-full h-full flex items-center justify-center select-none"
+              >
                 <img
                   src={activeImage.url}
                   alt={activeImage.title}
-                  className="max-h-[75vh] max-w-full object-contain rounded-md"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="max-h-[75vh] max-w-full object-contain rounded-md select-none pointer-events-none"
                 />
+
+                {/* Transparent Security Shield Overlay */}
+                <div 
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="absolute inset-0 z-10 bg-transparent select-none" 
+                />
+
+                {/* Protective Lightbox Watermark Badge */}
+                <div className="absolute bottom-3 right-3 z-20 px-3 py-1 rounded bg-black/75 border border-white/10 text-[10px] font-mono tracking-widest uppercase text-white/80 backdrop-blur-md pointer-events-none select-none">
+                  © Kashinath Jale Studio · Protected
+                </div>
               </div>
 
               <button

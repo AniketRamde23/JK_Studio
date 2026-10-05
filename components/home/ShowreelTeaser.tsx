@@ -54,7 +54,8 @@ export function ShowreelTeaser() {
       {/* Showreel Video Container (Video as the cover) */}
       <div
         onClick={togglePlay}
-        className="group relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-ink-line bg-black cursor-pointer shadow-2xl"
+        onContextMenu={(e) => e.preventDefault()}
+        className="group relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-ink-line bg-black cursor-pointer shadow-2xl select-none"
         data-cursor="video"
       >
         <video
@@ -64,11 +65,18 @@ export function ShowreelTeaser() {
           loop
           muted={isMuted}
           playsInline
-          className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-out"
+          disablePictureInPicture
+          controlsList="nodownload noplaybackrate nofullscreen"
+          onContextMenu={(e) => e.preventDefault()}
+          draggable={false}
+          className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-out pointer-events-none select-none"
         />
 
+        {/* Transparent Security Shield Overlay */}
+        <div className="absolute inset-0 z-10 select-none bg-transparent" />
+
         {/* Ambient Dark Gradient on edges for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-ink/20 pointer-events-none" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-ink/90 via-transparent to-ink/20 pointer-events-none" />
 
         {/* Play/Pause overlay indicator on pause */}
         {!isPlaying && (

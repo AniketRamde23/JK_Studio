@@ -44,7 +44,8 @@ export function TwoWorlds() {
               src="/photos/optimized/5.webp"
               alt="The Actor - In Front of the Camera"
               fill
-              className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              draggable={false}
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out pointer-events-none select-none"
             />
             {/* Warm gold spotlight overlay (Design Spec 1.3) */}
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-transparent" />
@@ -96,7 +97,8 @@ export function TwoWorlds() {
               src="/images/jk_logo.jpg"
               alt="Photography World - Behind the Lens"
               fill
-              className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              draggable={false}
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out pointer-events-none select-none"
             />
             {/* Cool neutral studio light overlay (Design Spec 1.3) */}
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-transparent" />

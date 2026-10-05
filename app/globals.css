@@ -115,3 +115,25 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   outline: 2px solid var(--c-gold);
   outline-offset: 2px;
 }
+
+/* Security & Media Copyright Protection */
+img, video, canvas {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+}
+
+/* Anti-Print and PDF Screen Capture Protection */
+@media print {
+  html, body {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
+

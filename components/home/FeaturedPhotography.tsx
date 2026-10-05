@@ -73,9 +73,16 @@ export function FeaturedPhotography({ images }: Props) {
                   src={img.url}
                   alt={img.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out pointer-events-none select-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Transparent click shield */}
+                <div 
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="absolute inset-0 z-10 bg-transparent select-none" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 
                 {/* Serial Badge */}
                 <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-ink/75 backdrop-blur-md border border-ink-line text-[10px] font-mono text-gold-hi font-medium">
@@ -136,14 +143,30 @@ export function FeaturedPhotography({ images }: Props) {
                 <ChevronLeft size={24} />
               </button>
 
-              <div className="relative max-w-4xl max-h-[75vh] w-full h-full flex items-center justify-center">
+              <div 
+                onContextMenu={(e) => e.preventDefault()}
+                className="relative max-w-4xl max-h-[75vh] w-full h-full flex items-center justify-center select-none"
+              >
                 <Image
                   src={activeImage.url}
                   alt={activeImage.title}
                   fill
-                  className="object-contain"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="object-contain pointer-events-none select-none"
                   priority
                 />
+
+                {/* Transparent Security Shield Overlay */}
+                <div 
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="absolute inset-0 z-10 bg-transparent select-none" 
+                />
+
+                {/* Protective Lightbox Watermark Badge */}
+                <div className="absolute bottom-3 right-3 z-20 px-3 py-1 rounded bg-black/75 border border-white/10 text-[10px] font-mono tracking-widest uppercase text-white/80 backdrop-blur-md pointer-events-none select-none">
+                  © Kashinath Jale Studio · Protected
+                </div>
               </div>
 
               {/* Next Button */}

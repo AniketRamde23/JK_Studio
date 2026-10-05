@@ -69,15 +69,22 @@ export function ActingView({ profile }: Props) {
     <div className="space-y-24 py-12 px-5 sm:px-8 max-w-7xl mx-auto">
       {/* 1. Profile Header (PRD Sec 7.3 & Design Spec 4.3) */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-5 relative aspect-[4/5] rounded-2xl overflow-hidden border border-ink-line bg-ink-curtain shadow-2xl">
+        <div 
+          onContextMenu={(e) => e.preventDefault()}
+          className="lg:col-span-5 relative aspect-[4/5] rounded-2xl overflow-hidden border border-ink-line bg-ink-curtain shadow-2xl select-none"
+        >
           <Image
             src="/photos/optimized/5.webp"
             alt="JK Acting Headshot"
             fill
-            className="object-cover object-top"
+            draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
+            className="object-cover object-top pointer-events-none select-none"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent opacity-60" />
+          {/* Transparent click shield */}
+          <div className="absolute inset-0 z-10 bg-transparent select-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent opacity-60 pointer-events-none" />
         </div>
 
         <div className="lg:col-span-7 space-y-6">
@@ -163,7 +170,10 @@ export function ActingView({ profile }: Props) {
           <span className="text-xs font-mono text-text-muted">4K HDR Montage · 02:45</span>
         </div>
 
-        <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-ink-line bg-black shadow-2xl">
+        <div 
+          onContextMenu={(e) => e.preventDefault()}
+          className="relative aspect-video w-full rounded-xl overflow-hidden border border-ink-line bg-black shadow-2xl select-none"
+        >
           <video
             src="/videos/acting_showreel.mp4"
             controls
@@ -171,6 +181,10 @@ export function ActingView({ profile }: Props) {
             loop
             muted
             playsInline
+            disablePictureInPicture
+            controlsList="nodownload noplaybackrate"
+            onContextMenu={(e) => e.preventDefault()}
+            draggable={false}
             className="w-full h-full object-contain bg-black"
           />
         </div>
@@ -352,6 +366,10 @@ export function ActingView({ profile }: Props) {
                 controls
                 autoPlay
                 playsInline
+                disablePictureInPicture
+                controlsList="nodownload noplaybackrate"
+                onContextMenu={(e) => e.preventDefault()}
+                draggable={false}
                 className="w-full h-full object-cover"
               />
             </div>
