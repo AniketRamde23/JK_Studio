@@ -70,9 +70,10 @@ export function FeaturedPhotography({ images }: Props) {
                 data-cursor="photo"
               >
                 <Image
-                  src={img.url}
+                  src={img.thumbUrl || img.url}
                   alt={img.title}
                   fill
+                  sizes="(max-width: 640px) 300px, 500px"
                   draggable={false}
                   onContextMenu={(e) => e.preventDefault()}
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out pointer-events-none select-none"

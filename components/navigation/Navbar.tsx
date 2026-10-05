@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MessageSquare, Calendar, Phone } from 'lucide-react';
 
@@ -17,6 +17,7 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -60,6 +61,9 @@ export function Navbar() {
           {/* Logo / Monogram */}
           <Link
             href="/"
+            prefetch={true}
+            onMouseEnter={() => router.prefetch('/')}
+            onTouchStart={() => router.prefetch('/')}
             className="flex items-center gap-2.5 group focus:outline-none"
             aria-label="JK Home"
           >
@@ -90,6 +94,8 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   prefetch={true}
+                  onMouseEnter={() => router.prefetch(link.href)}
+                  onTouchStart={() => router.prefetch(link.href)}
                   className={`group relative px-4 py-1.5 text-sm transition-colors duration-200 ${
                     isActive ? 'text-text font-medium' : 'text-text-muted hover:text-text'
                   }`}
@@ -123,6 +129,9 @@ export function Navbar() {
             </a>
             <Link
               href="/book"
+              prefetch={true}
+              onMouseEnter={() => router.prefetch('/book')}
+              onTouchStart={() => router.prefetch('/book')}
               className="relative inline-flex items-center justify-center px-5 py-2 text-xs font-medium tracking-wider uppercase text-ink bg-gold hover:bg-gold-hi rounded-full transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-gold/20 hover:shadow-lg"
             >
               Book a Slot
@@ -163,6 +172,8 @@ export function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    prefetch={true}
+                    onTouchStart={() => router.prefetch(link.href)}
                     onClick={() => setMobileMenuOpen(false)}
                     className="font-serif text-3xl text-text hover:text-gold block transition-colors"
                   >

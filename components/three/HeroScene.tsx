@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -46,6 +46,12 @@ function PhotoCard({
     tex.minFilter = THREE.LinearMipmapLinearFilter;
     return tex;
   }, [imgSrc]);
+
+  useEffect(() => {
+    return () => {
+      texture.dispose();
+    };
+  }, [texture]);
 
   useFrame((state) => {
     if (!groupRef.current) return;
@@ -111,7 +117,7 @@ function FloatingPhotos() {
         pos: [2.5, 1.3, -0.6],
         rot: [0.08, -0.2, -0.04],
         speed: 1.1,
-        imgSrc: '/photos/optimized/13.webp', // Fashion Editorial
+        imgSrc: '/photos/thumbs/13.webp', // Fashion Editorial
         size: [0.95, 1.3] as [number, number],
       },
       // Bottom Right floating card
@@ -119,7 +125,7 @@ function FloatingPhotos() {
         pos: [2.6, -1.2, -0.4],
         rot: [-0.08, -0.15, 0.08],
         speed: 0.8,
-        imgSrc: '/photos/optimized/19.webp', // Cinema Stills / BTS
+        imgSrc: '/photos/thumbs/19.webp', // Cinema Stills / BTS
         size: [0.95, 1.3] as [number, number],
       },
       // Top Left floating card
@@ -127,7 +133,7 @@ function FloatingPhotos() {
         pos: [-1.5, 1.25, -0.7],
         rot: [0.1, 0.22, -0.07],
         speed: 0.85,
-        imgSrc: '/photos/optimized/1.webp', // Weddings & Celebrations
+        imgSrc: '/photos/thumbs/1.webp', // Weddings & Celebrations
         size: [0.95, 1.3] as [number, number],
       },
       // Bottom Left floating card
@@ -135,7 +141,7 @@ function FloatingPhotos() {
         pos: [-1.9, -0.85, -0.4],
         rot: [-0.12, 0.16, 0.08],
         speed: 1.0,
-        imgSrc: '/photos/optimized/4.webp', // Cinematic Performance
+        imgSrc: '/photos/thumbs/4.webp', // Cinematic Performance
         size: [0.95, 1.3] as [number, number],
       },
       // Top Center ambient card
@@ -143,7 +149,7 @@ function FloatingPhotos() {
         pos: [-0.1, 1.65, -1.2],
         rot: [0.04, -0.06, 0.04],
         speed: 0.75,
-        imgSrc: '/photos/optimized/2.webp', // Intimacy / Heirloom
+        imgSrc: '/photos/thumbs/2.webp', // Intimacy / Heirloom
         size: [0.9, 1.22] as [number, number],
       },
     ];

@@ -149,9 +149,10 @@ export function PhotographyView({ images }: Props) {
                     className="relative w-full aspect-auto select-none"
                   >
                     <img
-                      src={img.url}
+                      src={img.thumbUrl || img.url}
                       alt={img.title}
                       loading="lazy"
+                      decoding="async"
                       draggable={false}
                       onContextMenu={(e) => e.preventDefault()}
                       className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out select-none pointer-events-none"
