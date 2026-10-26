@@ -17,6 +17,14 @@ export async function POST(req: NextRequest) {
 
     const message = db.addContactMessage(data);
 
+    // Send email notification via EmailJS / Email provider
+    try {
+      const { sendContactNotificationEmail } = await import('@/lib/email');
+      await sendContactNotificationEmail(data);
+    } catch (mailErr) {
+      console.warn('[Contact] Non-blocking email dispatch failure:', mailErr);
+    }
+
     return NextResponse.json({
       success: true,
       message: 'Message delivered. We will respond within 24 hours.',

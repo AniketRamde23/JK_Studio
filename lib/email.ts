@@ -129,6 +129,55 @@ Please contact the customer to discuss the requirements and pricing.
 
   const logId = `email_${Date.now()}`;
 
+  // Check EmailJS Configuration first
+  const emailJsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || process.env.EMAILJS_SERVICE_ID;
+  const emailJsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || process.env.EMAILJS_TEMPLATE_ID;
+  const emailJsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.EMAILJS_PUBLIC_KEY;
+
+  if (emailJsServiceId && emailJsTemplateId && emailJsPublicKey) {
+    try {
+      const emailJsRes = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'origin': 'http://localhost:3000',
+        },
+        body: JSON.stringify({
+          service_id: emailJsServiceId,
+          template_id: emailJsTemplateId,
+          user_id: emailJsPublicKey,
+          template_params: {
+            name: request.customerName,
+            email: recipientEmail,
+            phone: request.phone,
+            subject: `New Slot Request: ${request.eventName}`,
+            time: `${request.date} at ${request.time}`,
+            message: `Event: ${request.eventName}\nDate: ${request.date}\nTime: ${request.time}\nPhone: ${request.phone}${request.notes ? `\nNotes: ${request.notes}` : ''}`,
+          },
+        }),
+      });
+
+      if (emailJsRes.ok) {
+        emailLogs.push({
+          id: logId,
+          to: recipientEmail,
+          subject,
+          text: textContent,
+          html: htmlContent,
+          sentAt: new Date().toISOString(),
+          status: 'SENT',
+        });
+        console.log(`[EmailJS] Notification sent successfully for ${request.eventName}`);
+        return { success: true, mode: 'LIVE', logId };
+      } else {
+        const errText = await emailJsRes.text();
+        console.warn(`[EmailJS] Response error (${emailJsRes.status}):`, errText);
+      }
+    } catch (err) {
+      console.error('[EmailJS] Network error:', err);
+    }
+  }
+
   // Check if Resend API key is present
   const resendApiKey = process.env.RESEND_API_KEY;
   if (resendApiKey) {
@@ -180,3 +229,112 @@ Please contact the customer to discuss the requirements and pricing.
   console.log(textContent);
   return { success: true, mode: 'SIMULATED', logId };
 }
+
+/**
+ * Sends a notification email for general contact form submissions
+ */
+export async function sendContactNotificationEmail(data: {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+}): Promise<{ success: boolean; mode: 'LIVE' | 'SIMULATED' }> {
+  const emailJsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || process.env.EMAILJS_SERVICE_ID;
+  const emailJsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || process.env.EMAILJS_TEMPLATE_ID;
+  const emailJsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.EMAILJS_PUBLIC_KEY;
+
+  if (emailJsServiceId && emailJsTemplateId && emailJsPublicKey) {
+    try {
+      const emailJsRes = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'origin': 'http://localhost:3000',
+        },
+        body: JSON.stringify({
+          service_id: emailJsServiceId,
+          template_id: emailJsTemplateId,
+          user_id: emailJsPublicKey,
+          template_params: {
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            subject: data.subject || 'General Inquiry',
+            time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+            message: `From: ${data.name} (${data.email}, Phone: ${data.phone})\nSubject: ${data.subject}\n\n${data.message}`,
+          },
+        }),
+      });
+
+      if (emailJsRes.ok) {
+        console.log(`[EmailJS] Contact email sent successfully for ${data.name}`);
+        return { success: true, mode: 'LIVE' };
+      } else {
+        const errText = await emailJsRes.text();
+        console.warn(`[EmailJS] Failed to send contact email (${emailJsRes.status}):`, errText);
+      }
+    } catch (err) {
+      console.error('[EmailJS] Contact notification error:', err);
+    }
+  }
+
+  return { success: true, mode: 'SIMULATED' };
+}
+
+/**
+ * Sends a notification email for acting / casting inquiries
+ */
+export async function sendActingEnquiryNotificationEmail(data: {
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+  project: string;
+  role: string;
+  projectType: string;
+  datesNeeded: string;
+  message: string;
+}): Promise<{ success: boolean; mode: 'LIVE' | 'SIMULATED' }> {
+  const emailJsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || process.env.EMAILJS_SERVICE_ID;
+  const emailJsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || process.env.EMAILJS_TEMPLATE_ID;
+  const emailJsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.EMAILJS_PUBLIC_KEY;
+
+  if (emailJsServiceId && emailJsTemplateId && emailJsPublicKey) {
+    try {
+      const emailJsRes = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'origin': 'http://localhost:3000',
+        },
+        body: JSON.stringify({
+          service_id: emailJsServiceId,
+          template_id: emailJsTemplateId,
+          user_id: emailJsPublicKey,
+          template_params: {
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            subject: `Acting/Casting Inquiry: ${data.project} (${data.projectType})`,
+            time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+            message: `Project: ${data.project}\nProduction / Company: ${data.company}\nRole: ${data.role}\nProject Type: ${data.projectType}\nDates Needed: ${data.datesNeeded}\nPhone: ${data.phone}\nEmail: ${data.email}\n\nDetails:\n${data.message}`,
+          },
+        }),
+      });
+
+      if (emailJsRes.ok) {
+        console.log(`[EmailJS] Acting enquiry email sent successfully for ${data.name}`);
+        return { success: true, mode: 'LIVE' };
+      } else {
+        const errText = await emailJsRes.text();
+        console.warn(`[EmailJS] Failed to send acting enquiry email (${emailJsRes.status}):`, errText);
+      }
+    } catch (err) {
+      console.error('[EmailJS] Acting enquiry notification error:', err);
+    }
+  }
+
+  return { success: true, mode: 'SIMULATED' };
+}
+

@@ -21,6 +21,14 @@ export async function POST(req: NextRequest) {
 
     const enquiry = db.addActingEnquiry(data);
 
+    // Send email notification via EmailJS / Email provider
+    try {
+      const { sendActingEnquiryNotificationEmail } = await import('@/lib/email');
+      await sendActingEnquiryNotificationEmail(data);
+    } catch (mailErr) {
+      console.warn('[ActingEnquiry] Non-blocking email dispatch failure:', mailErr);
+    }
+
     return NextResponse.json({
       success: true,
       enquiry,
